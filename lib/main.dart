@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:weather_app/view/help_page.dart';
+import 'package:weather_app/view/home_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +18,11 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-            home: HelpPage()
+            theme: ThemeData(
+              brightness: Brightness.dark,
+              fontFamily: 'Nunito',
+            ),
+            home: HomePage()
         );
       },
     );
